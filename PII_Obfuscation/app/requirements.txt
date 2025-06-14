@@ -1,0 +1,7 @@
+flask==3.0.3
+Flask-HTTPAuth==4.8.0
+numpy==1.24.3
+werkzeug==3.0.4
+gunicorn==23.0.0
+transformers==4.29.2
+tensorflow-cpu==2.10.1 # alternatively use standard lib if GPU available, CPU version saves a lot of memory
