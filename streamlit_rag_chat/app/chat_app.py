@@ -99,16 +99,16 @@ if prompt := st.chat_input("What is up?"):
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
-        
+    # If a function call is made, handle it   
     message, function_call = client.chat_with_function_calling(
             messages=manage_history(st.session_state.messages, context_length),
             doc_store=st.session_state.get("doc_store", None)
         )
     if function_call:
-        # If a function call is made, handle it
+        # Add function call with outcome to chat history
         st.session_state.messages.extend(message)
 
-    # Display assistant response in chat message container
+    # Display assistant response in chat message container via streaming
     with st.chat_message("assistant"):
 
         stream = client.chat_stream(

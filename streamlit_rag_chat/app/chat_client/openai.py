@@ -117,8 +117,7 @@ class OpenAIChatClient:
             args = json.loads(func_args)
             message = []
             if func_name == "vector_search" and doc_store:
-                results = doc_store.similarity_search(args["query"])
-                print(results)
+                results = doc_store.similarity_search(args["query"]) 
                 message = [{"role": "function", "name": "vector_search", "content": str(results)}]
             elif func_name == "get_current_time":
                 timezone = args.get("timezone", "UTC")
