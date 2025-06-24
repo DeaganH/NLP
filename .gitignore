@@ -2,3 +2,6 @@ datasets
 *checkpoints
 *.tar.gz
 *.zip
+.venv
+__pycache__
+*.pyc

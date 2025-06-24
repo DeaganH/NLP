@@ -1,0 +1,1 @@
+Some projects I have been working on in the area of NLP to further my own knowledge development
