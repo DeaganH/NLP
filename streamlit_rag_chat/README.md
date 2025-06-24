@@ -2,6 +2,14 @@
 
 A simple, extensible ChatGPT-like application built with [Streamlit](https://streamlit.io/) that supports Retrieval-Augmented Generation (RAG) over uploaded documents. Users can upload `.txt`, `.pdf`, or `.docx` files, which are then vectorized for semantic search and context-aware chat using OpenAI's API.
 
+Streamlit is an open-source Python framework for data scientists and AI/ML engineers to deliver dynamic data apps with only a few lines of code. It allows you to build powerful apps in minutes.
+
+This app can be seen as an extension of the example provided by the [Streamlit docs](https://docs.streamlit.io/develop/tutorials/chat-and-llm-apps/build-conversational-apps#build-a-chatgpt-like-app).
+
+What I have done is shown how you can use additional streamlit elements. open source libraries and tool use from the Open.AI api to augment your chat with RAG and additional functionality, such as returning the current date and time. 
+
+Additional tools can of course be added, however this is just a showcase of how it can potentially be applied within a chat interface.
+
 ---
 
 ## Features
