@@ -142,7 +142,7 @@ pip install emoji
 ## 🤖 LLM Data Augmentation Details
 
 ### Local LLM Setup (Qwen 7B)
-- **Model**: Qwen-7B-Chat quantized version
+- **Model**: Qwen-7B-Chat version
 - **Purpose**: Generate synthetic tweets and validate existing labels
 - **Hardware**: CUDA-compatible GPU recommended (8GB+ VRAM)
 
@@ -160,78 +160,7 @@ pip install emoji
 - **Training samples increased by**: ~25%
 - **Macro F1-Score improvement**: +12 percentage points
 - **Most improved emotions**: pessimism (+15%), surprise (+20%), trust (+30%)
-
-## 🧪 Experimental Variations
-
-### Model Comparisons
-- **BERT-Base vs BERT-Large**: Performance vs computational cost analysis
-- **Different Preprocessing**: Impact of emoji handling and text cleaning
-- **Threshold Tuning**: Optimizing classification thresholds per emotion
-
-### Data Augmentation Methods
-1. **Synonym Replacement**: Using WordNet synonyms
-2. **Back Translation**: English → French → English
-3. **LLM Generation**: Context-aware synthetic data creation
-4. **Mixup**: Interpolation between tweet embeddings
-
-## 📝 Code Examples
-
-### Basic Usage
-```python
-import tensorflow as tf
-import pandas as pd
-from emotion_classifier import EmotionBERTClassifier
-
-# Load data
-train_df = pd.read_csv('datasets/E-c-En-train.csv')
-
-# Initialize classifier
-classifier = EmotionBERTClassifier(
-    model_name='bert_en_uncased_L-12_H-768_A-12_4',
-    num_emotions=11
-)
-
-# Train model
-classifier.fit(train_df['Tweet'], train_df[emotion_columns])
-
-# Predict emotions
-predictions = classifier.predict(["I'm feeling great today!"])
-```
-
-### LLM Augmentation
-```python
-from llm_augmentation import QwenAugmentor
-
-# Initialize LLM
-augmentor = QwenAugmentor(model_path="Qwen-7B-Chat")
-
-# Generate synthetic data
-synthetic_tweets = augmentor.generate_emotion_tweets(
-    emotion="optimism",
-    num_samples=100,
-    contexts=["personal", "social", "aspirational"]
-)
-
-# Validate existing labels
-validated_labels = augmentor.validate_labels(
-    tweets=train_df['Tweet'],
-    current_labels=train_df[emotion_columns]
-)
-```
-
-## 🔧 Troubleshooting
-
-### Common Issues
-1. **GPU Memory Issues**: Reduce batch size or use model checkpointing
-2. **Slow Training**: Enable mixed precision training with `tf.keras.mixed_precision`
-3. **Label Imbalance**: Use class weights or SMOTE techniques
-4. **Overfitting**: Implement early stopping and dropout
-
-### Performance Optimization
-- **Data Loading**: Use `tf.data` pipelines for efficient data loading
-- **Model Compilation**: Enable XLA compilation for faster training
-- **Distributed Training**: Multi-GPU training for large datasets
-
+ 
 ## 📚 References & Citation
 
 ### Academic Papers
@@ -332,7 +261,6 @@ This project code is licensed under the MIT License - see the [LICENSE](LICENSE)
 
 When using these models, include appropriate attribution:
 
-```markdown
 ## Model Attribution
 
 This project uses the following open source models:
@@ -349,7 +277,6 @@ This project uses the following open source models:
 - **License**: Tongyi Qianwen LICENSE AGREEMENT
 - **Usage**: Research and educational purposes
 - **Citation**: Qwen Technical Report (2023)
-```
 
 ### Compliance Recommendations
 
